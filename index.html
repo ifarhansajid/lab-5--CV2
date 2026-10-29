@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Farhan Sajid – Computer Science Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lav:#CBB3EB; --chart:#D4FF34; --tomato:#E34234;
+  --bg:#0f0e13; --card:#18161f;
+  --text:#ece8f3; --muted:#a39db3; --line:#2a2735;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:clamp(13px,1.15vw,17px);line-height:1.4}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--chart);outline-offset:2px}
+.ic{width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.app{height:100%;display:grid;grid-template-columns:38% 1fr;gap:10px;padding:10px}
+.content{display:contents}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(12px,1.4vw,22px);min-height:0;overflow:hidden}
+h2{font-family:var(--display);font-weight:800;font-size:1.25em;color:var(--lav);margin-bottom:.6em;display:flex;align-items:center;gap:.5em}
+
+/* identity */
+.id{display:flex;flex-direction:column;gap:8px;border-color:var(--lav);background:var(--card);padding:10px 10px clamp(12px,1.4vw,20px)}
+.art{position:relative;flex:1;min-height:0;border-radius:12px;overflow:hidden;background:var(--lav)}
+.art svg{width:100%;height:100%;display:block}
+.who{padding:0 clamp(4px,.8vw,12px)}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(2rem,3.8vw,4rem);line-height:.92;letter-spacing:-.03em;color:var(--lav)}
+.role{margin-top:.55em;display:inline-flex;align-items:center;gap:.45em;background:var(--chart);color:#0f0e13;font-weight:600;padding:.28em .8em;border-radius:999px}
+.contact{display:flex;gap:8px;padding:0 clamp(4px,.8vw,12px)}
+.contact a{flex:1;display:flex;align-items:center;gap:.55em;background:#14121a;border:1px solid var(--line);border-radius:12px;padding:.55em .7em;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.9em}
+.contact a svg{color:var(--chart)}
+.contact a:hover{border-color:var(--chart)}
+
+/* main */
+#p-projects{border-color:var(--chart)}#p-projects h2{color:var(--chart)}
+.lower>.card:first-child{border-color:var(--tomato)}.lower>.card:first-child h2{color:var(--tomato)}
+.edu{border-color:var(--lav)}
+.main{display:grid;grid-template-rows:1.3fr 1fr;gap:10px;min-height:0}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;height:calc(100% - 2.2em)}
+.proj{border:1px solid var(--line);border-radius:14px;padding:clamp(12px,1.2vw,18px);display:flex;flex-direction:column;gap:.5em;background:#14121a;min-height:0}
+.tile{width:clamp(40px,4vw,60px);height:clamp(40px,4vw,60px);border-radius:14px;display:grid;place-items:center;margin-bottom:auto}
+.tile svg{width:55%;height:55%}
+.t1{background:var(--chart);color:#0f0e13}.t2{background:var(--lav);color:#0f0e13}.t3{background:var(--tomato);color:#fff}
+.proj h3{font-family:var(--display);font-size:1.3em;font-weight:800;margin-top:.4em}
+.proj p{color:var(--muted)}
+.proj a.link{color:var(--lav);text-decoration:underline;text-underline-offset:3px}
+.tag{align-self:flex-start;border:1px solid #3a3350;border-radius:999px;padding:.08em .7em;color:var(--lav);font-size:.85em}
+.lower{display:grid;grid-template-columns:1.25fr 1fr;gap:10px;min-height:0}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:8px;height:calc(100% - 2.2em)}
+.chip{background:#14121a;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35em;font-weight:600;text-align:center;padding:.3em}
+.chip svg{width:1.6em;height:1.6em}
+.c1{color:var(--lav)}.c2{color:var(--chart)}.c3{color:var(--tomato)}.c4{color:var(--text)}
+.edu{display:flex;flex-direction:column}
+.edu-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.5em}
+.edu b{font-family:var(--display);font-size:1.5em;line-height:1}
+.edu .row{display:flex;align-items:center;gap:.5em;color:var(--muted)}
+.edu .code{align-self:flex-start;display:inline-flex;align-items:center;gap:.4em;background:#14121a;border:1px solid var(--line);color:var(--chart);border-radius:10px;padding:.25em .8em;font-weight:600}
+
+.tabs{display:none}
+@media (max-width:860px){
+  body{font-size:14px}
+  .app{grid-template-columns:1fr;grid-template-rows:1fr auto}
+  .content{display:block;min-height:0;height:100%}
+  .panel{display:none;height:100%}
+  .panel.on{display:flex}
+  .main,.lower{display:contents}
+  .projects{grid-template-columns:1fr;grid-auto-rows:1fr}
+  #p-projects.on{display:block}
+  .proj{flex-direction:row;flex-wrap:wrap;align-content:center;align-items:center;column-gap:12px}
+  .tile{margin:0}
+  .proj h3{margin:0;flex:1}
+  .proj p,.proj .tag{flex-basis:100%}
+  .name{font-size:3rem}
+  #p-more.on{flex-direction:column;gap:10px}
+  #p-more>.card{flex:1}
+  .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .tabs button{display:flex;align-items:center;justify-content:center;gap:.4em;font:600 13px var(--body);background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:12px 0;cursor:pointer}
+  .tabs button[aria-selected="true"]{background:var(--lav);color:#0f0e13;border-color:var(--lav)}
+}
+@media (min-width:861px){.panel{display:block}.id{display:flex}.lower.panel{display:grid}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+</svg>
+
+<div class="app">
+  <div class="content">
+    <section class="card id panel on" id="p-about" aria-label="About">
+      <div class="art">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of a student coding on a laptop with headphones">
+          <rect width="400" height="300" fill="#CBB3EB"/>
+          <circle cx="200" cy="150" r="128" fill="#D4FF34" opacity=".35"/>
+          <circle cx="200" cy="150" r="92" fill="#D4FF34" opacity=".5"/>
+          <g fill="#0f0e13" opacity=".6"><circle cx="60" cy="210" r="3"/><circle cx="345" cy="205" r="3"/><circle cx="90" cy="95" r="2"/><circle cx="318" cy="105" r="2"/></g>
+          <path d="M26 24h128a12 12 0 0 1 12 12v16a12 12 0 0 1-12 12H80l-16 14 2-14H26a12 12 0 0 1-12-12V36a12 12 0 0 1 12-12z" fill="#0f0e13"/>
+          <text x="90" y="52" text-anchor="middle" font-family="Bricolage Grotesque,Segoe UI,sans-serif" font-weight="800" font-size="16" fill="#D4FF34">Hello, world!</text>
+          <g font-family="Bricolage Grotesque,Segoe UI,sans-serif" font-weight="800" font-size="15" text-anchor="middle">
+            <rect x="318" y="36" width="56" height="30" rx="10" fill="#0f0e13" stroke="#CBB3EB"/><text x="346" y="57" fill="#CBB3EB">{ }</text>
+            <rect x="326" y="118" width="58" height="30" rx="10" fill="#0f0e13" stroke="#D4FF34"/><text x="355" y="139" fill="#D4FF34">&lt;/&gt;</text>
+            <rect x="16" y="130" width="52" height="30" rx="10" fill="#0f0e13" stroke="#E34234"/><text x="42" y="151" fill="#E34234">git</text>
+          </g>
+          <path d="M96 262C96 208 140 184 200 184s104 24 104 78z" fill="#E34234"/>
+          <path d="M170 186c4 18 56 18 60 0" fill="none" stroke="#0f0e13" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+          <path d="M186 192v30M214 192v30" stroke="#0f0e13" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+          <rect x="185" y="160" width="30" height="30" rx="10" fill="#d9a882"/>
+          <ellipse cx="200" cy="125" rx="36" ry="40" fill="#e6b794"/>
+          <path d="M162 122c-4-44 76-44 76 0-10-22-62-22-76 0z" fill="#0f0e13"/>
+          <circle cx="187" cy="130" r="10" fill="none" stroke="#0f0e13" stroke-width="2.5"/>
+          <circle cx="213" cy="130" r="10" fill="none" stroke="#0f0e13" stroke-width="2.5"/>
+          <path d="M197 129h6" stroke="#0f0e13" stroke-width="2.5"/>
+          <circle cx="187" cy="130" r="2.8" fill="#0f0e13"/><circle cx="213" cy="130" r="2.8" fill="#0f0e13"/>
+          <path d="M190 148q10 8 20 0" fill="none" stroke="#0f0e13" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M160 126C156 70 244 70 240 126" fill="none" stroke="#0f0e13" stroke-width="6" stroke-linecap="round"/>
+          <rect x="152" y="116" width="14" height="30" rx="6" fill="#D4FF34" stroke="#0f0e13" stroke-width="2"/><rect x="234" y="116" width="14" height="30" rx="6" fill="#D4FF34" stroke="#0f0e13" stroke-width="2"/>
+          <path d="M112 244 142 214M288 244 258 214" stroke="#c63a2e" stroke-width="22" stroke-linecap="round"/>
+          <rect x="128" y="206" width="144" height="52" rx="7" fill="#0f0e13"/>
+          <circle cx="200" cy="232" r="8" fill="#D4FF34"/>
+          <rect x="116" y="258" width="168" height="7" rx="3.5" fill="#0f0e13"/>
+          <ellipse cx="144" cy="208" rx="14" ry="8" fill="#e6b794"/><ellipse cx="256" cy="208" rx="14" ry="8" fill="#e6b794"/>
+          <rect x="0" y="265" width="400" height="35" fill="#0f0e13"/>
+          <rect x="316" y="236" width="26" height="29" rx="5" fill="#D4FF34"/>
+          <path d="M342 244h6a6 6 0 0 1 0 14h-6" fill="none" stroke="#D4FF34" stroke-width="4"/>
+          <path d="M324 228q-4-6 0-12M334 228q-4-6 0-12" fill="none" stroke="#0f0e13" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+        </svg>
+      </div>
+      <div class="who">
+        <h1 class="name">Farhan Sajid</h1>
+        <span class="role"><svg class="ic"><use href="#i-cap"/></svg>Computer Science student</span>
+      </div>
+      <div class="contact">
+        <a href="mailto:admin@farhansajid.com"><svg class="ic"><use href="#i-mail"/></svg>admin@farhansajid.com</a>
+        <a href="https://github.com/ifarhansajid" target="_blank" rel="noopener"><svg class="ic"><use href="#i-gh"/></svg>ifarhansajid</a>
+      </div>
+    </section>
+
+    <div class="main">
+      <section class="card panel" id="p-projects" aria-label="Projects">
+        <h2><svg class="ic"><use href="#i-folder"/></svg>Projects</h2>
+        <div class="projects">
+          <article class="proj">
+            <div class="tile t1"><svg class="ic"><use href="#i-cloud"/></svg></div>
+            <h3>Weather App</h3>
+            <p>Real-time weather tracking web application built with modern JavaScript.</p>
+            <span class="tag">JavaScript / API</span>
+          </article>
+          <article class="proj">
+            <div class="tile t2"><svg class="ic"><use href="#i-plane"/></svg></div>
+            <h3>Flight Booking</h3>
+            <p>Streamlined booking interface for managing flight itineraries.</p>
+            <span class="tag">Web app</span>
+          </article>
+          <article class="proj">
+            <div class="tile t3"><svg class="ic"><use href="#i-branch"/></svg></div>
+            <h3>Lab Quiz 1</h3>
+            <p>Academic coursework repository. <a class="link" href="https://github.com/ifarhansajid/lab-quiz1" target="_blank" rel="noopener">View on GitHub</a></p>
+            <span class="tag">GitHub</span>
+          </article>
+        </div>
+      </section>
+
+      <div class="lower panel" id="p-more">
+        <section class="card" aria-label="Skills">
+          <h2><svg class="ic"><use href="#i-sparkle"/></svg>Skills</h2>
+          <div class="chips">
+            <span class="chip c1"><svg class="ic"><use href="#i-code"/></svg>HTML5</span>
+            <span class="chip c2"><svg class="ic"><use href="#i-layout"/></svg>CSS3</span>
+            <span class="chip c1"><svg class="ic"><use href="#i-zap"/></svg>JavaScript</span>
+            <span class="chip c3"><svg class="ic"><use href="#i-monitor"/></svg>Frontend</span>
+            <span class="chip c4"><svg class="ic"><use href="#i-branch"/></svg>Git</span>
+            <span class="chip c2"><svg class="ic"><use href="#i-gh"/></svg>GitHub</span>
+          </div>
+        </section>
+        <section class="card edu" aria-label="Education">
+          <h2><svg class="ic"><use href="#i-cap"/></svg>Education</h2>
+          <div class="edu-body">
+            <b>QU Lahore</b>
+            <span class="row"><svg class="ic"><use href="#i-pin"/></svg>Computer Science</span>
+            <span class="code"><svg class="ic"><use href="#i-code"/></svg>CIT331</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <nav class="tabs" role="tablist" aria-label="CV sections">
+    <button role="tab" aria-selected="true" data-t="p-about"><svg class="ic"><use href="#i-user"/></svg>About</button>
+    <button role="tab" aria-selected="false" data-t="p-projects"><svg class="ic"><use href="#i-folder"/></svg>Projects</button>
+    <button role="tab" aria-selected="false" data-t="p-more"><svg class="ic"><use href="#i-sparkle"/></svg>Skills</button>
+  </nav>
+</div>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabs button'),panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(b){b.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+    panels.forEach(function(p){p.classList.toggle('on',p.id===b.dataset.t)});
+  })});
+})();
+</script>
+</body>
+</html>
